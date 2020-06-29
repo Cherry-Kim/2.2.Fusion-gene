@@ -1,0 +1,58 @@
+﻿####################################
+#SOAPfuse 설치 
+####################################
+In the Linux terminal:
+ $ tar -xzf /PATH_WHERE_YOU_PUT_THE_TARBALL/SOAPfuse-vX.X.tar.gz
+ $ cd ./SOAPfuse-vX.X/
+Note:
+From v1.27, SOAPfuse packages part of its functions into SOAPfuse perl module.
+You must set the PERL Lib PATH
+add the following text line into your /etc/profile
+PERL5LIB=$PERL5LIB:/PATH_WHERE_YOU_PUT_THE_PACKAGE/source/bin/perl_module; export PERL5LIB
+
+#Constructing database
+#https://sourceforge.net/p/soapfuse/wiki/Construct_SOAPfuse_database/
+$cd /home/program/SOAPfuse-v1.27/db/mouse
+$/home/program/SOAPfuse-v1.27/source/SOAPfuse-S00-Generate_SOAPfuse_database.pl -wg mm10.fa -gtf Mus_musculus.GRCm38.84.gtf -cbd cytoBand.txt -gf gencode_genes.txt -rft rft-mouse.txt -sd /home/program/SOAPfuse-v1.27/ -dd /home/program/SOAPfuse-v1.27/database_mm10
+
+#Constructing database (output)
+Congratulations!
+You have constructed SOAPfuse database files successfully.
+These database files are all stored in directory you supplied:
+/home/program/SOAPfuse-v1.27/database_mm10/
+They are all generated based on public data files you supplied:
+whole_genome_fasta_file:   /home/program/SOAPfuse-v1.27/db/mouse/mm10.fa
+gtf_annotation_file:       /home/program/SOAPfuse-v1.27/db/mouse/Mus_musculus.GRCm38.84.gtf
+Chr_Bandregion_file:       /home/program/SOAPfuse-v1.27/db/mouse/cytoBand.txt
+HGNC_gene_family_file:     /home/program/SOAPfuse-v1.27/db/mouse/gencode_genes.txt
+gtf_segname2refseg_list:   /home/program/SOAPfuse-v1.27/db/mouse/rft-mouse.txt
+
+To use these database files, just set the 'DB_db_dir' in config file as belowed:
+DB_db_dir  =   /home/program/SOAPfuse-v1.27/database_mm10
+
+Good luck!
+
+#change config.txt
+DB_db_dir  = /home/program/SOAPfuse-v1.27/database_mm10
+PG_pg_dir   =  /home/program/SOAPfuse-v1.27/source/bin
+PS_ps_dir   = /home/program/SOAPfuse-v1.27/source
+PD_all_out           =    /home/program/SOAPfuse-v1.27/output-mm10
+PA_all_fq_postfix = PostFix (default: fq.gz)
+
+#how to run
+perl SOAPfuse-RUN.pl -c  /home/program/SOAPfuse-v1.27/config/config.txt -fd /home/program/SOAPfuse-v1.27/test_JSY2 -l  sample-list.txt -o /home/program/SOAPfuse-v1.27/output-mm10 -tp MEF1
+                           [Other Options]
+
+#how to run (RESULT)
+Creat expression svg figures successfully!
+fusion-expression-figures-ok
+
+========================================================================
+MRC 서버 내 SOAPfuse 설치 완료했습니다.
+mouse gencode file을 찾아서 설치할 수 있었습니다.
+install history 보시면 
+
+#how to run 있습니다. 참고하셔서 돌리시면 될 것 같습니다. 
+MEF1 샘플로 test-run 해보니 시간이 거의 16시간 정도 걸립니다.. 
+output은 10개 정도의 fusion gene case 가 나왔습니다.  (6개 정도는 fusion catcher 결과와도 겹쳤습니다.)
+
