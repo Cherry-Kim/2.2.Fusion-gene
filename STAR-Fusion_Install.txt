@@ -1,0 +1,45 @@
+﻿#pre-requisite
+#STAR https://github.com/alexdobin/STAR (/home/program/STAR-2.7.2d)
+$ ln -s /home/program/STAR-2.7.2d/source/STAR /usr/bin/
+#samtools http://www.htslib.org/download/ (/home/program/samtools-1.9)
+$ ln -s /home/program/samtools-1.9/samtools /usr/bin/
+
+###### Install ###############
+#install STAR-Fusion (참고 사이트: https://github.com/STAR-Fusion/STAR-Fusion/wiki/installing-star-fusion)
+$git clone --recursive https://github.com/STAR-Fusion/STAR-Fusion.git
+
+> cd plugins && make
+
+#A typical perl module installation
+$perl -MCPAN -e shell
+  $install DB_File
+  $install URI::Escape
+  $install Set::IntervalTree
+  $install Carp::Assert
+  $install JSON::XS
+  $install PerlIO::gzip
+
+
+###### Mouse ################
+#Data Resources Required:
+$ wget https://data.broadinstitute.org/Trinity/CTAT_RESOURCE_LIB/Mouse_gencode_M24_CTAT_lib_Apr062020.plug-n-play.tar.gz
+$ tar -xvf Mouse_gencode_M24_CTAT_lib_Apr062020.plug-n-play.tar.gz
+
+
+#rebuild CTAT lib
+$ cd /path/to/your/ctat_genome_lib_build_dir
+$ {STAR_Fusion_BASEDIR}/ctat-genome-lib-builder/util/rebuild_indices.pl .  #don't forget that final dot! 
+--> #STAR-Fusion --genome_lib_dir /path/to/your/CTAT_resource_lib   ...
+
+/home/DATA/Drug/RNA-seq/STAR-Fusion/ctat-genome-lib-builder/prep_genome_lib.pl 
+	--genome_fa ref_genome.fa 
+	--gtf ref_annot.gtf  
+	--pfam_db current  
+	--dfam_db mouse
+
+# how to run
+ /home/program/STAR-Fusion/STAR-Fusion --genome_lib_dir /home/program/STAR-Fusion/Mouse_gencode_M24_CTAT_lib_Apr062020.plug-n-play/ctat_genome_lib_build_dir/ \
+             --left_fq /PATH/TO/RAW/RNA/Seq/DATA/*_1.fq \
+             --right_fq /PATH/TO/RAW/RNA/Seq/DATA/*_2.fq \
+             --output_dir /PATH/TO/OUPUT/FOLDER
+
