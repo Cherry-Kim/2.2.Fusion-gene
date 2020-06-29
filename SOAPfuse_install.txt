@@ -47,12 +47,3 @@ perl SOAPfuse-RUN.pl -c  /home/program/SOAPfuse-v1.27/config/config.txt -fd /hom
 Creat expression svg figures successfully!
 fusion-expression-figures-ok
 
-========================================================================
-MRC 서버 내 SOAPfuse 설치 완료했습니다.
-mouse gencode file을 찾아서 설치할 수 있었습니다.
-install history 보시면 
-
-#how to run 있습니다. 참고하셔서 돌리시면 될 것 같습니다. 
-MEF1 샘플로 test-run 해보니 시간이 거의 16시간 정도 걸립니다.. 
-output은 10개 정도의 fusion gene case 가 나왔습니다.  (6개 정도는 fusion catcher 결과와도 겹쳤습니다.)
-
