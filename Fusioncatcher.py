@@ -1,28 +1,21 @@
 import string,os,glob,sys
 
-'''
-sample='/home/DATA/Drug/RNA-seq/LPS3/'
-dirname='/home/program/fusioncatcher/database_mouse/'
-output='/home/DATA/Drug/RNA-seq/Fusioncatcher/LPS3_fusioncathcer/'
-os.system('/home/program/fusioncatcher/bin/fusioncatcher -d '+dirname+' --input '+sample+' --output '+output+' -p 24')
-
-sample1='/home/DATA/Drug/RNA-seq/MEF1/'
+sample1='/home/RNA-seq/sample1/'
 dirname1='/home/program/fusioncatcher/database_mouse/'
-output1='/home/DATA/Drug/RNA-seq/Fusioncatcher/MEF1_fusioncathcer/'
+output1='/home/RNA-seq/sample1/Fusioncatcher/'
 os.system('/home/program/fusioncatcher/bin/fusioncatcher -d '+dirname1+' --input '+sample1+' --output '+output1+' -p 24')
 
-sample2='/home/DATA/Drug/RNA-seq/Poly4/'
+sample2='/home/RNA-seq/sample4/'
 dirname2='/home/program/fusioncatcher/database_mouse/'
-output2='/home/DATA/Drug/RNA-seq/Fusioncatcher/Poly4_fusioncathcer/'
+output2='/home/RNA-seq/sample4/Fusioncatcher/'
 os.system('/home/program/fusioncatcher/bin/fusioncatcher -d '+dirname2+' --input '+sample2+' --output '+output2+' -p 24')
-'''
 
-fp=glob.glob('/home/DATA/Drug/RNA-seq/Fusioncatcher/fusioncatcher_result/*-fusion-genes.txt')
+
+fp=glob.glob('/home/RNA-seq/sample1/Fusioncatcher/fusioncatcher_result/*-fusion-genes.txt')
 for fname in fp:
-	print fname
 	gene=[]
-	fp=open(fname,'r')
-	fp.readline()
+	fp1=open(fname,'r')
+	fp1.readline()
 	b=os.path.basename(fname)
 	c=b.split('-')
 	sample=c[0]
