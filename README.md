@@ -1,6 +1,6 @@
 # Arriba 
 
-https://arriba.readthedocs.io/en/v1.1.0/quickstart/)https://arriba.readthedocs.io/en/v1.1.0/quickstart/
+https://arriba.readthedocs.io/en/v1.1.0/quickstart/
 
 wget https://github.com/suhrig/arriba/releases/download/v1.1.0/arriba_v1.1.0.tar.gz
 
