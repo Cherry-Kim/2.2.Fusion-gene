@@ -9,4 +9,5 @@ READ1='/home/DATA/Drug/RNA-seq/Sample1/sample1_1.fq.gz'
 READ2='/home/DATA/Drug/RNA-seq/Sample1/sample1_2.fq.gz'
 THREADS='16'
 
+#Usage: run_arriba.sh STAR_genomeDir/ annotation.gtf assembly.fa blacklist.tsv read1.fastq.gz read2.fastq.gz threads
 os.system('/home/program/arriba_v1.2.0/run_arriba.sh '+STAR_INDEX_DIR+' '+ASSEMBLY_FA+' '+fa+' '+BLACKLIST_TSV+' '+READ1+' '+READ2+' '+THREADS)
